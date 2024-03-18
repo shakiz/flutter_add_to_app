@@ -1,0 +1,5 @@
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+        settingsDir.parentFile,
+        'flutter_addtoapp_poc/.android/include_flutter.groovy'
+))
