@@ -11,12 +11,12 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <h2>Table of Contents</h2>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#methods">Methods</a></li>
-    <li><a href="#basicmechanisms">Basic Mechanisms</a></li>
-    <li><a href="#methodstochoose">Method to Choose</a></li>
+    <li><a href="#basic-mechanisms">Basic Mechanisms</a></li>
+    <li><a href="#methods-to-choose">Method to Choose</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#limitations">Limitations</a></li>
     <li><a href="#contributing">Contributing</a></li>
