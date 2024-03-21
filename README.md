@@ -10,8 +10,7 @@
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <h2>Table of Contents</h2>
+<h2>Table of Contents</h2>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#methods">Methods</a></li>
@@ -21,7 +20,6 @@
     <li><a href="#limitations">Limitations</a></li>
     <li><a href="#contributing">Contributing</a></li>
   </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
