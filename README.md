@@ -1,6 +1,5 @@
 <a name="readme-top"></a>
 
-<br />
 <div align="center">
 
   <h3 align="center">Flutter - Add Module Inside Native</h3>
@@ -30,7 +29,7 @@ Incorporating a Flutter module into an existing Android native app, also known a
 <!-- Implementation Features -->
 ## Implementation Features
 
-This project inclused demonstration of below mentioned technical items. 
+This project includes demonstration of below mentioned technical items. 
 * Debugging from native to flutter app
 * Data pass between native to flutter and flutter to native 
 * Complex object passing (JSON data/object/list)
