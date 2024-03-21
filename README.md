@@ -14,13 +14,12 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#usage">Methods</a></li>
-    <li><a href="#basicmechanism">Basic Mechanisms</a></li>
-    <li><a href="#methodtochoose">Method to Choose</a></li>
+    <li><a href="#methods">Methods</a></li>
+    <li><a href="#basicmechanisms">Basic Mechanisms</a></li>
+    <li><a href="#methodstochoose">Method to Choose</a></li>
     <li><a href="#installation">Installation</a></li>
-    <li><a href="#installation">Limitations</a></li>
+    <li><a href="#limitations">Limitations</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -43,7 +42,7 @@ To launch a Flutter screen from an existing iOS/Android, we need to start a `Flu
 The FlutterEngine serves as a host to the Dart VM and Flutter runtime, and the FlutterViewController/FlutterActivity attaches to a FlutterEngine to pass input events into Flutter and to display frames rendered by the FlutterEngine. The FlutterEngine may have the same lifespan as your FlutterViewController/FlutterActivity or outlive our FlutterViewController/FlutterActivity.
 
 <!-- Methods to Choose -->
-## Method to Choose
+## Methods to Choose
 
 Each of the methods provides a way to integrate the `Flutter Module into native app`. But choosing the right one might depend on the above mentioned points. 
 
