@@ -13,6 +13,7 @@
 <h2>Table of Contents</h2>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
+    <li><a href="#implementation-features">Implementation Features</a></li>
     <li><a href="#methods">Methods</a></li>
     <li><a href="#basic-mechanisms">Basic Mechanisms</a></li>
     <li><a href="#methods-to-choose">Method to Choose</a></li>
@@ -25,6 +26,19 @@
 ## About The Project
 
 Incorporating a Flutter module into an existing Android native app, also known as `Add-to-App` implementation, offers developers the flexibility to leverage Flutter's rich UI capabilities within their Android projects. This documentation provides a `step-by-step guide to various methods available for integrating a Flutter module into an Android native app`. There are several popular methods that are suggested by Flutter, and amongst them some are a good fit, others might not. The key of this solution is, embedding the Flutter module to your native application in a subproject. As the cross-platform feature of Flutter, one single Flutter module can be added to both Android and iOS projects.
+
+<!-- Implementation Features -->
+## Implementation Features
+
+This project inclused demonstration of below mentioned technical items. 
+* Debugging from native to flutter app
+* Data pass between native to flutter and flutter to native 
+* Complex object passing (JSON data/object/list)
+* Specific Screen Navigation, Flow end, Flow trigger, Flow navigation.
+* Basic routing
+* Conditional flow trigger
+* Callback mechanism on different events
+* Close flutter screen and send back the data to native or have some listener to know that flutter activity shutdown
 
 <!-- Methods -->
 ## Methods
