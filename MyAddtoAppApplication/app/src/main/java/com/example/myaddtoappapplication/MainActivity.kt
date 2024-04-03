@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -12,7 +13,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.myaddtoappapplication.databinding.ActivityMainBinding
 import com.example.myaddtoappapplication.model.UserInfo
 import com.google.gson.Gson
+import io.flutter.FlutterInjector
 import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.android.FlutterView
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.embedding.engine.dart.DartExecutor
@@ -23,7 +26,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var flutterViewEngine: FlutterViewEngine
     private lateinit var flutterEngine: FlutterEngine
+    private lateinit var flutterView : FlutterView
+
     private val methodChannelName = "get_data_channel"
     private lateinit var navController: NavController
     private val ENGINE_ID = "1"
@@ -63,11 +70,26 @@ class MainActivity : AppCompatActivity() {
                 result.notImplemented()
             }
         }
+
+        flutterView = FlutterView(this)
+        binding.contentMain.llTest.addView(flutterView,
+            ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+        flutterViewEngine = FlutterViewEngine(flutterEngine)
+        flutterViewEngine.attachToActivity(this)
+        flutterViewEngine.attachFlutterView(flutterView)
     }
 
     private fun initFlutterEngine(){
-        flutterEngine = FlutterEngine(this)
+        flutterEngine = FlutterEngine(applicationContext)
         setWithInitialRoute()
+
+        // Forcefully start showCell entryPoint
+//        flutterEngine.dartExecutor.executeDartEntrypoint(
+//            DartExecutor.DartEntrypoint(
+//                FlutterInjector.instance().flutterLoader().findAppBundlePath(),
+//                "showCell")
+//        )
+
         // Start executing Dart code to pre-warm the FlutterEngine
         flutterEngine.dartExecutor.executeDartEntrypoint(
             DartExecutor.DartEntrypoint.createDefault()
@@ -93,7 +115,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setWithInitialRoute(){
-        flutterEngine.navigationChannel.setInitialRoute("/screen_d")
+        flutterEngine.navigationChannel.setInitialRoute("/")
     }
 
     private fun getDataFromNative(): String {
@@ -110,5 +132,29 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             navController.navigate(R.id.action_FirstFragment_to_SecondFragment)
         }, 500)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        flutterViewEngine.detachActivity()
+    }
+
+    override fun onUserLeaveHint() {
+        flutterViewEngine.onUserLeaveHint()
+        super.onUserLeaveHint()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        flutterViewEngine.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        flutterViewEngine.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }
