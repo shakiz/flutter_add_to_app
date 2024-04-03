@@ -7,6 +7,7 @@ import 'package:flutter_addtoapp_poc/flowb/screen_e.dart';
 import 'package:flutter_addtoapp_poc/flowb/screen_f.dart';
 import 'package:go_router/go_router.dart';
 
+import 'cell.dart';
 import 'flowa/screen_c.dart';
 
 final MethodChannel platformChannel = MethodChannel('flutter_addtoapp_poc');
@@ -21,6 +22,12 @@ void fetchDataFromNative() async {
 }
 
 void main() => runApp(const MyApp());
+
+
+@pragma("vm:entry-point")
+void showCell() {
+  runApp(const Cell());
+}
 
 final GoRouter _router = GoRouter(
   initialLocation: "/",
